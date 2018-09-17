@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_margin="10dp"
-                    android:text="Chief Execute Officer"/>
+                    android:text="Gerente"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -148,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_margin="10dp"
-                    android:text="Developer Junior"/>
+                    android:text="Developer"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

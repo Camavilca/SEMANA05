@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity  implements  View.OnClickLis
                 i.putExtra("ocupación", t4.getText().toString());
                 i.putExtra(  "telefono", "(323)-555-1234");
                 i.putExtra(  "correo", "juan.manuel@gmail.com");
-                i.putExtra(  "web", "www.juansac.pe");
+                i.putExtra(  "web", "www.juansac.com");
                 startActivity(i);
                 break;
             case R.id.card2:
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity  implements  View.OnClickLis
                 i.putExtra("nombres", t2.getText().toString());
                 i.putExtra("ocupación", t5.getText().toString());
                 i.putExtra(  "telefono", "946866415");
-                i.putExtra(  "correo", "diego.martinez.r.com");
-                i.putExtra(  "web", "www.youtube");
+                i.putExtra(  "correo", "diego.martinez.r@tecsup.edu.pe");
+                i.putExtra(  "web", "www.youtube.com");
                 startActivity(i);
                 break;
             case R.id.card3:
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity  implements  View.OnClickLis
                 i.putExtra("ocupación", t6.getText().toString());
                 i.putExtra(  "telefono", "952485241");
                 i.putExtra(  "correo", "orlando.camavilca@tecsp.edu.pe");
-                i.putExtra(  "web", "www.faceboock");
+                i.putExtra(  "web", "www.youtube.com");
                 startActivity(i);
                 break;
             default:

@@ -21,17 +21,17 @@ import org.w3c.dom.Text;
 import static java.net.Proxy.Type.HTTP;
 
 public class Contacto extends AppCompatActivity {
-    private TextView    text_name;
-    private TextView    text_funcion;
-    private TextView    text_telefono;
-    private TextView    text_correo;
-    private TextView    text_sitio;
+    private TextView text_name;
+    private TextView text_funcion;
+    private TextView text_telefono;
+    private TextView text_correo;
+    private TextView text_sitio;
     private ImageView imagen;
 
     private Bundle datos;
     private String nombre;
     private String ocupacion;
-    private String celu ;
+    private String celular ;
     private String correo;
     private String web;
 
@@ -49,35 +49,36 @@ public class Contacto extends AppCompatActivity {
         if(datos != null) {
             nombre = datos.getString("nombres");
             ocupacion = datos.getString("ocupación");
-            celu = datos.getString("telefono");
+            celular = datos.getString("telefono");
             correo = datos.getString("correo");
             web = datos.getString("web");
         }
         text_name.setText(nombre);
         text_funcion.setText(ocupacion);
-        text_telefono.setText(celu);
+        text_telefono.setText(celular);
         text_correo.setText(correo);
         text_sitio.setText(web);
-        if (nombre.equals("Juan Manuel Paredes")) {
-            imagen.setImageResource(R.drawable.img1);
-        } else if (nombre.equals("Diego Martinez Rayme")){
+
+
+        if (nombre.equals("Juan Manuel")) {
+            imagen.setImageResource(R.drawable.img);
+        } else if (ocupacion.equals("doctor")){
             imagen.setImageResource(R.drawable.img2);
-        }else if (nombre.equals("Orlando Camavilca Chavez")){
+        }else if (ocupacion.equals("developer")){
             imagen.setImageResource(R.drawable.img3);
         }
     }
-    public void llamar(View view) {
-        String cadena = String.valueOf(celu);
-        String cel = "tel:" + cadena;
-        Log.i("Conversion", cel);
 
-        Intent obj = new Intent(Intent.ACTION_CALL);
-        obj.setData(Uri.parse(cel));
-        if (ActivityCompat.checkSelfPermission(Contacto.this,
-                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        startActivity(obj);
+    public void llamar(View view) {
+      String numero = text_telefono.getText().toString();
+      Intent intent = new Intent(Intent.ACTION_DIAL);
+      intent.setData(Uri.parse("tel:"+numero));
+      if(intent.resolveActivity(getPackageManager())!=null){
+          startActivity(intent);
+      }else{
+          Toast.makeText(this,"No exista el app de llamar",Toast.LENGTH_SHORT).show();
+      }
+
     }
 
     public void enviarCorreo(View view) {
@@ -112,7 +113,7 @@ public class Contacto extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setData(Uri.parse("smsto:"));  // This ensures only SMS apps respond
         intent.putExtra("sms_body", "hola");
-        intent.putExtra(Intent.EXTRA_STREAM, celu);
+        intent.putExtra(Intent.EXTRA_STREAM, celular);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
